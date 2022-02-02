@@ -22,7 +22,7 @@ func init() {
 	flag.StringVar(&csvFileName, "csv",
 		"problems.csv", "a csv file in the format of question,answer")
 	flag.BoolVar(&shuffleVar, "shuffle", true, "shuffle the problems if true, else ignore")
-	flag.IntVar(&timeLimit, "limit", 3, "time limit for the test in seconds")
+	flag.IntVar(&timeLimit, "limit", 30, "time limit for the Quiz in seconds")
 }
 
 type problem struct {
