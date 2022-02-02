@@ -10,4 +10,4 @@ GOINSTALL=$(GOCMD) install
 .PHONY: quiz-game
 quiz-game:
 	echo "Running Quiz Game!" 
-	cd quiz-game && $(GORUN) main.go -limit 10
+	cd quiz-game && $(GORUN) main.go -limit 20
