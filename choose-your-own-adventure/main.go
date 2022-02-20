@@ -11,7 +11,10 @@ import (
 
 func main() {
 	port := flag.Int("port", 8082, "the port to start CYOA web application on")
-	chapters, err := arc.InitiateChapters("gophers.json")
+	file := flag.String("file", "gophers.json", "the JSON file from which the stories are parsed")
+	flag.Parse()
+
+	chapters, err := arc.InitiateChapters(*file)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -19,5 +22,4 @@ func main() {
 	h := arc.NewHandler(chapters)
 	fmt.Printf("Starting the server on port: %d\n", *port)
 	log.Fatal(http.ListenAndServe(fmt.Sprintf(":%d", *port), h))
-
 }
