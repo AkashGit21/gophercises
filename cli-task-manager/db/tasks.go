@@ -17,11 +17,10 @@ type Task struct {
 
 func Init(dbpath string) error {
 	var err error
-	db, err = bolt.Open("tasks.db", 0666, &bolt.Options{Timeout: 1 * time.Second})
+	db, err = bolt.Open(dbpath, 0666, &bolt.Options{Timeout: 1 * time.Second})
 	if err != nil {
 		return err
 	}
-	defer db.Close()
 
 	return db.Update(func(tx *bolt.Tx) error {
 		_, err := tx.CreateBucketIfNotExists(taskBucket)
