@@ -21,3 +21,7 @@ url-shortener:
 cyoa:
 	echo "Running Choose Your Own Adventure Web Aplication!"
 	cd choose-your-own-adventure && $(GORUN) main.go -port 3000 -file "gophers.json"
+
+.PHONY: task
+task:
+	go run cli-task-manager/main.go ${action} ${value}
